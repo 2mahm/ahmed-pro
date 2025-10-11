@@ -1,0 +1,134 @@
+/* .about {
+    background: linear-gradient(135deg, #1b002d, #5c0099);
+    padding: 120px 40px;
+    color: white;
+  } */
+  .about {
+    background: url("../assest/00.jpg") center center / cover no-repeat;
+    padding: 120px 40px;
+    color: white;
+    min-height: 100vh; /* يخلي الخلفية تمتد بطول الشاشة */
+  }
+  .about {
+    position: relative;
+    min-height: 100vh;
+    color: white;
+    padding: 120px 40px;
+    z-index: 1;
+  }
+  
+  .about::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(128, 0, 128, 0.8); /* طبقة سوداء شفافة */
+
+    z-index: -1;
+  }
+  
+  .about::after {
+    content: "";
+    background: url("../assest/00.jpg") center center / cover no-repeat;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -2;
+  }
+  .about-image {
+    background: none !important; /* يشيل أي خلفية */
+    box-shadow: none !important; /* يشيل أي ظل */
+    border: none !important;     /* يشيل أي إطار */
+  }
+  .about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    gap: 50px;
+  }
+  
+  /* الصورة */
+  .about-image img {
+    width: 420px;
+    display: block;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+  }
+  
+  .about-image.show img {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* النص */
+  .about-text {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .about-text h2 {
+    font-size: 38px;
+    margin-bottom: 20px;
+    color: #ff00f7;
+  }
+  
+  .about-text p {
+    font-size: 30px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  /* المهارات */
+  .skills-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: cyan;
+  }
+  
+  .skill {
+    margin-bottom: 25px;
+  }
+  
+  .skill-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  /* الأيقونات */
+  .icon {
+    font-size: 30px;
+    padding: 8px;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  .icon.photoshop {
+    background: #31a8ff; /* أزرق */
+  }
+  .icon.illustrator {
+    background: #ff9a00; /* برتقالي */
+  }
+  .icon.aftereffects {
+    background: #d291ff; /* بنفسجي فاتح */
+  }
+  .icon.premiere {
+    background: #ea77ff; /* بنفسجي */
+  }
+  
+  .progress {
+    background: rgba(255, 255, 255, 0.2);
+    height: 12px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #ff00f7, #8a00d4);
+    border-radius: 20px;
+  }
+  
