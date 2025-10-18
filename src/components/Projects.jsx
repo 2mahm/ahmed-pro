@@ -20,11 +20,11 @@ import so16 from "../assest/so16.jpg";
 import so17 from "../assest/so17.jpg";
 
 // 🎬 فيديوهات Motion
-import ved1 from "../motion/ved1.mp4";
-import ved2 from "../motion/ved2.mp4";
-import ved3 from "../motion/ved3.mp4";
-import ved4 from "../motion/ved4.mp4";
-import ved5 from "../motion/ved5.mp4";
+import ved1 from "../motion/Ved1.mp4";
+import ved2 from "../motion/Ved2.mp4";
+import ved3 from "../motion/Ved3.mp4";
+import ved4 from "../motion/Ved4.mp4";
+import ved5 from "../motion/Ved5.mp4";
 
 // 📄 ملفات PDF & فيديو للـ Branding
 import brandPDF1 from "../branding/logo1.pdf";
