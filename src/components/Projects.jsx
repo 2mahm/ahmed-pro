@@ -19,17 +19,17 @@ import so15 from "../assest/so15.jpg";
 import so16 from "../assest/so16.jpg";
 import so17 from "../assest/so17.jpg";
 
-// 🎬 فيديوهات Motion
-import Ved1 from "../motion/Ved1.mp4";
-import Ved2 from "../motion/Ved2.mp4";
-import Ved3 from "../motion/Ved3.mp4";
-import Ved4 from "../motion/Ved4.mp4";
-import Ved5 from "../motion/Ved5.mp4";
+// 🎬 فيديوهات Motion - استخدام المسارات العامة
+const Ved1 = "/motion/Ved1.mp4";
+const Ved2 = "/motion/Ved2.mp4";
+const Ved3 = "/motion/Ved3.mp4";
+const Ved4 = "/motion/Ved4.mp4";
+const Ved5 = "/motion/Ved5.mp4";
 
-// 📄 ملفات PDF & فيديو للـ Branding
-import brandPDF1 from "../branding/logo1.pdf";
-import brandPDF2 from "../branding/logo2.pdf";
-import brandVideo from "../branding/icone.mp4";
+// 📄 ملفات PDF & فيديو للـ Branding - استخدام المسارات العامة
+const brandPDF1 = "/branding/logo1.pdf";
+const brandPDF2 = "/branding/logo2.pdf";
+const brandVideo = "/branding/icone.mp4";
 
 function Projects() {
   const [activeTab, setActiveTab] = useState("all");
