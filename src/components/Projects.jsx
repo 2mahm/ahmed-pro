@@ -20,11 +20,11 @@ import so16 from "../assest/so16.jpg";
 import so17 from "../assest/so17.jpg";
 
 // 🎬 فيديوهات Motion
-import ved1 from "../motion/Ved1.mp4";
-import ved2 from "../motion/Ved2.mp4";
-import ved3 from "../motion/Ved3.mp4";
-import ved4 from "../motion/Ved4.mp4";
-import ved5 from "../motion/Ved5.mp4";
+import Ved1 from "../motion/Ved1.mp4";
+import Ved2 from "../motion/Ved2.mp4";
+import Ved3 from "../motion/Ved3.mp4";
+import Ved4 from "../motion/Ved4.mp4";
+import Ved5 from "../motion/Ved5.mp4";
 
 // 📄 ملفات PDF & فيديو للـ Branding
 import brandPDF1 from "../branding/logo1.pdf";
@@ -59,11 +59,11 @@ function Projects() {
     { id: 19, title: "Instagram Post", category: "social", type: "image", img: so17 },
 
     // 🎬 Motion Videos محليًا
-    { id: 20, title: "Motion Video 1", category: "motion", type: "video", img: ved1 },
-    { id: 21, title: "Motion Video 2", category: "motion", type: "video", img: ved2 },
-    { id: 22, title: "Motion Video 3", category: "motion", type: "video", img: ved3 },
-    { id: 23, title: "Motion Video 4", category: "motion", type: "video", img: ved4 },
-    { id: 24, title: "Motion Video 5", category: "motion", type: "video", img: ved5 },
+    { id: 20, title: "Motion Video 1", category: "motion", type: "video", img: Ved1 },
+    { id: 21, title: "Motion Video 2", category: "motion", type: "video", img: Ved2 },
+    { id: 22, title: "Motion Video 3", category: "motion", type: "video", img: Ved3 },
+    { id: 23, title: "Motion Video 4", category: "motion", type: "video", img: Ved4 },
+    { id: 24, title: "Motion Video 5", category: "motion", type: "video", img: Ved5 },
   ];
 
   const filteredProjects =
