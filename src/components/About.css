@@ -131,4 +131,99 @@
     background: linear-gradient(90deg, #ff00f7, #8a00d4);
     border-radius: 20px;
   }
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .about-text h2 {
+    font-size: 32px;
+  }
+
+  .about-text p {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 60px 20px;
+  }
+
+  .about-image img {
+    max-width: 280px;
+  }
+
+  .about-text h2 {
+    font-size: 28px;
+  }
+
+  .about-text p {
+    font-size: 18px;
+  }
+
+  .skills-title {
+    font-size: 20px;
+  }
+
+  .skill-info {
+    font-size: 16px;
+  }
+
+  .icon {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 40px 15px;
+  }
+
+  .about-container {
+    gap: 30px;
+  }
+
+  .about-image img {
+    max-width: 250px;
+  }
+
+  .about-text h2 {
+    font-size: 24px;
+  }
+
+  .about-text p {
+    font-size: 16px;
+  }
+
+  .skills-title {
+    font-size: 18px;
+  }
+
+  .skill-info {
+    font-size: 14px;
+  }
+
+  .icon {
+    font-size: 20px;
+    padding: 6px;
+  }
+
+  .progress {
+    height: 10px;
+  }
+}
   

@@ -65,3 +65,43 @@
   color: #ff00f7;
   transform: scale(1.2);
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 40px;
+  }
+
+  .hero-sub {
+    font-size: 24px;
+  }
+
+  .hero-socials {
+    margin-top: 20px;
+    gap: 15px;
+  }
+
+  .hero-socials a {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 28px;
+    padding: 0 20px;
+  }
+
+  .hero-sub {
+    font-size: 18px;
+  }
+
+  .hero-socials {
+    margin-top: 15px;
+    gap: 12px;
+  }
+
+  .hero-socials a {
+    font-size: 20px;
+  }
+}
