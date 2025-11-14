@@ -37,10 +37,10 @@ function Hero() {
         </h3>
 
         <div className="hero-socials">
-          <a href="https://wa.me/" target="_blank" rel="noopener noreferrer"><FaWhatsapp /></a>
-          <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
+          <a href="https://wa.me/+201011033409" target="_blank" rel="noopener noreferrer"><FaWhatsapp /></a>
+          <a href="https://www.facebook.com/ahmed.meto.3150" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
           <a href="https://behance.net/" target="_blank" rel="noopener noreferrer"><FaBehance /></a>
-          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+          <a href="https://www.linkedin.com/in/ahmed-metwlly-20804026b/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
         </div>
       </div>
     </section>
