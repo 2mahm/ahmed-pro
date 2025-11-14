@@ -133,6 +133,7 @@ function Projects() {
               <img 
                 src={project.img} 
                 alt={project.title}
+                loading="lazy"
                 onClick={() => setSelectedImage(project.img)}
                 style={{ cursor: 'pointer' }}
               />
