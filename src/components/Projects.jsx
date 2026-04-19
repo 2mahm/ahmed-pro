@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import "./Projects.css";
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { FiMaximize2, FiX, FiChevronDown } from "react-icons/fi";
 
-// 🖼️ صور Social
 import so1 from "../assest/so1.png";
 import so2 from "../assest/so2.jpg";
 import so3 from "../assest/so3.jpg";
@@ -21,137 +22,202 @@ import so17 from "../assest/so17.png";
 import so18 from "../assest/so18.jpg";
 import so19 from "../assest/so19.png";
 
-// 🎬 فيديوهات Motion - استخدام المسارات العامة
-const Ved1 = "/motion/Ved1.mp4";
-const Ved2 = "/motion/Ved2.mp4";
-const Ved3 = "/motion/Ved3.mp4";
-const Ved4 = "/motion/Ved4.mp4";
-const Ved5 = "/motion/Ved5.mp4";
-const Ved6 = "/motion/Ved6.mp4";
-const Ved7 = "/motion/Ved7.mp4";
-const Ved8 = "/motion/Ved8.mp4";
-const Ved9 = "/motion/Ved9.mp4";
-const Ved10 = "/motion/Ved10.mp4";
-const Ved11 = "/motion/Ved11.mp4";
-const Ved12 = "/motion/Ved12.mp4";
-const Ved13 = "/motion/Ved13.mp4";
+import "./Projects.css";
 
-// 📄 ملفات PDF & فيديو للـ Branding - استخدام المسارات العامة
-const brandPDF1 = "/branding/logo1.pdf";
-const brandPDF2 = "/branding/logo2.pdf";
-const brandVideo = "/branding/icone.mp4";
+const MOTION_VIDS = Array.from({ length: 13 }, (_, i) => `/motion/Ved${i + 1}.mp4`);
+const BRAND_PDFS = ["/branding/logo1.pdf", "/branding/logo2.pdf"];
+const BRAND_VID = "/branding/icone.mp4";
+
+const SOCIAL_IMGS = [
+  so1, so2, so3, so4, so6, so7, so8, so9, so10,
+  so11, so12, so13, so14, so15, so16, so17, so18, so19,
+];
+
+const ALL_PROJECTS = [
+  ...MOTION_VIDS.map((src, i) => ({
+    id: `m${i}`, category: "motion", type: "video", src,
+  })),
+  ...SOCIAL_IMGS.map((src, i) => ({
+    id: `s${i}`, category: "social", type: "image", src,
+  })),
+  ...BRAND_PDFS.map((src, i) => ({
+    id: `bp${i}`, category: "branding", type: "pdf", src,
+  })),
+  { id: "bv0", category: "branding", type: "video", src: BRAND_VID },
+];
+
+const TABS = ["All", "Motion", "Social", "Branding"];
 
 function Projects() {
-  const [activeTab, setActiveTab] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [tab, setTab] = useState("All");
+  const [lightbox, setLightbox] = useState(null);
+  const [showMore, setShowMore] = useState(false);
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.08 });
 
-  const projects = [
-    // ✨ Branding
-    { id: 1, title: "Brand PDF 1", category: "branding", type: "pdf", img: brandPDF1 },
-    { id: 2, title: "Brand PDF 2", category: "branding", type: "pdf", img: brandPDF2 },
-    { id: 3, title: "Branding Video", category: "branding", type: "video", img: brandVideo },
-
-    // 🖼️ Social
-    { id: 4, title: "Instagram Post", category: "social", type: "image", img: so1 },
-    { id: 5, title: "Instagram Post", category: "social", type: "image", img: so2 },
-    { id: 6, title: "Instagram Post", category: "social", type: "image", img: so3 },
-    { id: 7, title: "Instagram Post", category: "social", type: "image", img: so4 },
-    { id: 8, title: "Instagram Post", category: "social", type: "image", img: so6 },
-    { id: 9, title: "Instagram Post", category: "social", type: "image", img: so7 },
-    { id: 10, title: "Instagram Post", category: "social", type: "image", img: so8 },
-    { id: 11, title: "Instagram Post", category: "social", type: "image", img: so9 },
-    { id: 12, title: "Instagram Post", category: "social", type: "image", img: so10 },
-    { id: 13, title: "Instagram Post", category: "social", type: "image", img: so11 },
-    { id: 14, title: "Instagram Post", category: "social", type: "image", img: so12 },
-    { id: 15, title: "Instagram Post", category: "social", type: "image", img: so13 },
-    { id: 16, title: "Instagram Post", category: "social", type: "image", img: so14 },
-    { id: 17, title: "Instagram Post", category: "social", type: "image", img: so15 },
-    { id: 18, title: "Instagram Post", category: "social", type: "image", img: so16 },
-    { id: 19, title: "Instagram Post", category: "social", type: "image", img: so17 },
-    { id: 20, title: "Instagram Post", category: "social", type: "image", img: so18 },
-    { id: 21, title: "Instagram Post", category: "social", type: "image", img: so19 },
-
-    // 🎬 Motion Videos محليًا
-    { id: 22, title: "Motion Video 1", category: "motion", type: "video", img: Ved1 },
-    { id: 23, title: "Motion Video 2", category: "motion", type: "video", img: Ved2 },
-    { id: 24, title: "Motion Video 3", category: "motion", type: "video", img: Ved3 },
-    { id: 25, title: "Motion Video 4", category: "motion", type: "video", img: Ved4 },
-    { id: 26, title: "Motion Video 5", category: "motion", type: "video", img: Ved5 },
-    { id: 27, title: "Motion Video 6", category: "motion", type: "video", img: Ved6 },
-    { id: 28, title: "Motion Video 7", category: "motion", type: "video", img: Ved7 },
-    { id: 29, title: "Motion Video 8", category: "motion", type: "video", img: Ved8 },
-    { id: 30, title: "Motion Video 9", category: "motion", type: "video", img: Ved9 },
-    { id: 31, title: "Motion Video 10", category: "motion", type: "video", img: Ved10 },
-    { id: 32, title: "Motion Video 11", category: "motion", type: "video", img: Ved11 },
-    { id: 33, title: "Motion Video 12", category: "motion", type: "video", img: Ved12 },
-    { id: 34, title: "Motion Video 13", category: "motion", type: "video", img: Ved13 },
-  ];
-
-  const filteredProjects = activeTab 
-    ? projects.filter((p) => p.category === activeTab)
-    : [];
+  const filtered = tab === "All"
+    ? ALL_PROJECTS
+    : ALL_PROJECTS.filter(p => p.category === tab.toLowerCase());
 
   return (
-    <section className="projects">
-      <h2 className="projects-title">My Projects</h2>
-
-      {/* التابات */}
-      <div className="tabs">
-        <button className={activeTab === "motion" ? "active" : ""} onClick={() => setActiveTab("motion")}>
-          Motion Graphics
-        </button>
-        <button className={activeTab === "social" ? "active" : ""} onClick={() => setActiveTab("social")}>
-          Social Media
-        </button>
-        <button className={activeTab === "branding" ? "active" : ""} onClick={() => setActiveTab("branding")}>
-          Branding
-        </button>
+    <section id="projects" className="projects" ref={ref}>
+      <div className="section-header">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="section-tag">Portfolio</p>
+          <h2 className="section-title">
+            My <span>Creative Work</span>
+          </h2>
+        </motion.div>
       </div>
 
-      {/* عرض المشاريع */}
-      {activeTab && (
-        <div className="projects-grid">
-          {filteredProjects.map((project) => (
-         <div
-         key={project.id}
-         className={`project-card ${project.category === "branding" ? "branding-card" : ""}`}
-       >
-            {project.type === "video" ? (
-              <video controls width="100%">
-                <source src={project.img} type="video/mp4" />
-                متصفحك لا يدعم تشغيل الفيديو.
-              </video>
-            ) : project.type === "pdf" ? (
-              <iframe
-                src={project.img}
-                width="100%"
-                height="300px"
-                title={project.title}
-                style={{ border: "none" }}
-              ></iframe>
-            ) : (
-              <img 
-                src={project.img} 
-                alt={project.title}
-                loading="lazy"
-                onClick={() => setSelectedImage(project.img)}
-                style={{ cursor: 'pointer' }}
-              />
-            )}
-          </div>
-        ))}
-        </div>
-      )}
+      <div className="projects-inner">
 
-      {/* Modal for full-size image */}
-      {selectedImage && (
-        <div className="image-modal" onClick={() => setSelectedImage(null)}>
-          <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
-            <span className="image-modal-close" onClick={() => setSelectedImage(null)}>&times;</span>
-            <img src={selectedImage} alt="Full size" />
-          </div>
-        </div>
-      )}
+        {/* Featured main video */}
+        <motion.div
+          className="main-video-wrap"
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
+          <video
+            className="main-video"
+            controls
+            preload="metadata"
+          >
+            <source src="/motion/Main.mp4" type="video/mp4" />
+          </video>
+          <span className="main-video-label">Featured Work</span>
+        </motion.div>
+
+        {/* See More button */}
+        {!showMore && (
+          <motion.div
+            className="see-more-wrap"
+            initial={{ opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <button className="btn-see-more" onClick={() => setShowMore(true)}>
+              See More
+              <FiChevronDown className="see-more-icon" />
+            </button>
+          </motion.div>
+        )}
+
+        {/* Tabs + grid revealed on click */}
+        <AnimatePresence>
+          {showMore && (
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {/* Filter tabs */}
+              <div className="filter-row">
+                {TABS.map(t => (
+                  <button
+                    key={t}
+                    className={`filter-btn${tab === t ? " active" : ""}`}
+                    onClick={() => setTab(t)}
+                  >
+                    {t}
+                  </button>
+                ))}
+              </div>
+
+              {/* Grid */}
+              <motion.div className="proj-grid" layout>
+                <AnimatePresence mode="popLayout">
+                  {filtered.length === 0 && (
+                    <motion.div
+                      key="empty"
+                      className="proj-empty"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                    >
+                      No items in this category.
+                    </motion.div>
+                  )}
+
+                  {filtered.map((proj, i) => (
+                    <motion.div
+                      key={proj.id}
+                      className={`proj-card${proj.type === "video" ? " proj-card--video" : ""}`}
+                      layout
+                      initial={{ opacity: 0, y: 24, scale: 0.96 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.92 }}
+                      transition={{ duration: 0.4, delay: i * 0.04, ease: [0.22, 1, 0.36, 1] }}
+                      onClick={() => {
+                        if (proj.type === "image") setLightbox(proj.src);
+                      }}
+                    >
+                      {proj.type === "image" && (
+                        <div className="proj-media">
+                          <img src={proj.src} alt="" loading="lazy" />
+                          <div className="proj-overlay">
+                            <div className="proj-expand"><FiMaximize2 /></div>
+                          </div>
+                          <span className="proj-badge">{proj.category}</span>
+                        </div>
+                      )}
+
+                      {proj.type === "video" && (
+                        <div className="proj-media">
+                          <video controls preload="metadata">
+                            <source src={proj.src} type="video/mp4" />
+                          </video>
+                          <span className="proj-badge">{proj.category}</span>
+                        </div>
+                      )}
+
+                      {proj.type === "pdf" && (
+                        <div className="proj-iframe-box">
+                          <iframe src={proj.src} title={proj.id} />
+                          <span className="proj-badge">{proj.category}</span>
+                        </div>
+                      )}
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightbox && (
+          <motion.div
+            className="lightbox"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => setLightbox(null)}
+          >
+            <motion.div
+              className="lightbox-content"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              onClick={e => e.stopPropagation()}
+            >
+              <button className="lightbox-close" onClick={() => setLightbox(null)} aria-label="Close">
+                <FiX />
+              </button>
+              <img src={lightbox} alt="Preview" />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
