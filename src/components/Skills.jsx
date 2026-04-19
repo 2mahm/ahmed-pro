@@ -4,8 +4,6 @@ import { useInView } from "react-intersection-observer";
 import {
   SiAdobephotoshop,
   SiAdobeillustrator,
-  SiAdobeindesign,
-  SiAdobelightroom,
   SiAdobeaftereffects,
   SiAdobepremierepro,
   SiFigma,
