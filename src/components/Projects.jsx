@@ -3,34 +3,44 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FiMaximize2, FiX, FiChevronDown } from "react-icons/fi";
 
-import so1 from "../assest/so1.png";
+import so1 from "../assest/so1.jpg";
 import so2 from "../assest/so2.jpg";
-import so3 from "../assest/so3.jpg";
-import so4 from "../assest/so4.jpg";
+import so3 from "../assest/so3.png";
+import so4 from "../assest/so4.png";
 import so6 from "../assest/so6.jpg";
 import so7 from "../assest/so7.jpg";
 import so8 from "../assest/so8.png";
 import so9 from "../assest/so9.png";
-import so10 from "../assest/so10.png";
+import so10 from "../assest/so10.jpg";
 import so11 from "../assest/so11.jpg";
-import so12 from "../assest/so12.jpg";
+import so12 from "../assest/so12.png";
 import so13 from "../assest/so13.jpg";
-import so14 from "../assest/so14.jpg";
+import so14 from "../assest/so14.png";
 import so15 from "../assest/so15.jpg";
 import so16 from "../assest/so16.jpg";
 import so17 from "../assest/so17.png";
 import so18 from "../assest/so18.jpg";
-import so19 from "../assest/so19.png";
+import so19 from "../assest/so19.jpg";
+import so20 from "../assest/so20.jpg";
+import so21 from "../assest/so21.png";
+import so22 from "../assest/so22.png";
+import so23 from "../assest/so23.jpg";
+import so24 from "../assest/so24.png";
+import so25 from "../assest/so25.jpg";
+import so26 from "../assest/so26.jpg";
+import so27 from "../assest/so27.png";
+import so28 from "../assest/so28.png";
+import so30 from "../assest/so30.png";
 
 import "./Projects.css";
 
-const MOTION_VIDS = Array.from({ length: 13 }, (_, i) => `/motion/Ved${i + 1}.mp4`);
+const MOTION_VIDS = Array.from({ length: 17 }, (_, i) => `/motion/Ved${i + 1}.mp4`);
 const BRAND_PDFS = ["/branding/logo1.pdf", "/branding/logo2.pdf"];
 const BRAND_VID = "/branding/icone.mp4";
 
 const SOCIAL_IMGS = [
   so1, so2, so3, so4, so6, so7, so8, so9, so10,
-  so11, so12, so13, so14, so15, so16, so17, so18, so19,
+  so11, so12, so13, so14, so15, so16, so17, so18, so19,so20,so21,so22,so23,so24,so25,so26,so27,so28,so30
 ];
 
 const ALL_PROJECTS = [
